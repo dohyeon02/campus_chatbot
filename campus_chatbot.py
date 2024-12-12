@@ -127,7 +127,14 @@ def get_random_greeting():
         return random.choice(greetings["afternoon"])
     elif 18 <= now.hour < 22:
         return random.choice(greetings["evening"])
-    else:# info_data 매칭 (우선 처리)
+    else:
+        return random.choice(greetings["night"])
+
+# 응답 생성 함수
+def generate_response(user_input):
+    user_input_no_space = user_input.replace(" ", "")
+
+    # info_data 매칭 (우선 처리)
     for category, details in info_data.items():
         category_no_space = category.replace(" ", "")
         if re.search(category_no_space, user_input_no_space):
@@ -139,13 +146,6 @@ def get_random_greeting():
         location_no_space = location.replace(" ", "")
         if re.search(location_no_space, user_input_no_space):
             return [f"**{location} 위치는 {description}입니다.**"]
-        return random.choice(greetings["night"])
-
-# 응답 생성 함수
-def generate_response(user_input):
-    user_input_no_space = user_input.replace(" ", "")
-
-
 
     # 기본 응답
     return ["질문을 이해하지 못했어요. 다시 입력해 주세요!"]
