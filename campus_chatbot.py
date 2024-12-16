@@ -231,7 +231,7 @@ def extract_keyword(user_input):
 st.title("삼육대 캠퍼스 관련 무물보 챗봇")
 
 # 사용자 입력값을 저장
-user_input = st.text_input("'안녕'으로 반갑게 인사해주세요! 질문하실때는 정확한 위치 포함해서 질문해주세요!", placeholder="질문하실때는 정확한 위치 포함해서 질문해주세요! \n 예시: 체육관 위치가 어디에요?").strip()
+user_input = st.text_input("'안녕'으로 반갑게 인사해주세요! 질문하실때는 정확한 위치 포함해서 질문해주세요!", placeholder="\n 예시: 체육관 위치가 어디에요?").strip()
 
 if user_input and user_input != st.session_state.last_input:  # 중복 입력 방지
     st.session_state.last_input = user_input  # 마지막 입력값 저장
