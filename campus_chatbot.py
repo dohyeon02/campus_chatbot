@@ -246,7 +246,7 @@ if user_input and user_input != st.session_state.last_input:  # 중복 입력 �
         st.session_state.messages.append({"role": "bot", "text": response_text})
 
 # 메시지 출력
-for idx, msg in enumerate(st.session_state.messages):
+for idx, msg in enumerate(st.session_state.messages[::-1]):
     if msg["role"] == "user":
         message(msg["text"], is_user=True, key=f"user_{idx}")
     else:
