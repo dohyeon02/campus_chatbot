@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_chat import message  # streamlit_chat 가져오기
 import random
 from datetime import datetime
+import pytz  # 시간대 처리를 위한 라이브러리
 import re  # 정규식 모듈 추가
 import folium  # 지도 생성 라이브러리
 from streamlit_folium import st_folium
@@ -154,7 +155,7 @@ info_data = {
 # get_random_greeting 함수 (수정된 부분만)
 def get_random_greeting(user_input):
     user_input_no_space = user_input.replace(" ", "").lower()  # 입력을 소문자로 변환 및 공백 제거
-    now = datetime.now()
+    now = datetime.now(pytz.timezone('Asia/Seoul'))
 
     if 5 <= now.hour < 12:
         return random.choice(greetings["morning"])
